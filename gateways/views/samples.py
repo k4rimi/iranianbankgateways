@@ -4,9 +4,9 @@ from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse
 
-from azbankgateways import bankfactories, models as bank_models, default_settings as settings
-from azbankgateways.apps import AZIranianBankGatewaysConfig
-from azbankgateways.exceptions import AZBankGatewaysException
+from gateways import bankfactories, models as bank_models, default_settings as settings
+from gateways.apps import GatewaysConfig
+from gateways.exceptions import BankGatewaysException
 from ..forms import PaymentSampleForm
 
 
@@ -25,7 +25,7 @@ def sample_payment_view(request):
                 bank.set_request(request)
                 bank.set_amount(amount)
                 # یو آر ال بازگشت به نرم افزار برای ادامه فرآیند
-                bank.set_client_callback_url(reverse(f'{AZIranianBankGatewaysConfig.name}:sample-result'))
+                bank.set_client_callback_url(reverse(f'{GatewaysConfig.name}:sample-result'))
                 bank.set_mobile_number(mobile_number)  # اختیاری
 
                 # در صورت تمایل اتصال این رکورد به رکورد فاکتور یا هر چیزی که بعدا بتوانید ارتباط بین محصول یا خدمات را با این
@@ -35,7 +35,7 @@ def sample_payment_view(request):
 
                 # هدایت کاربر به درگاه بانک
                 return bank.redirect_gateway()
-            except AZBankGatewaysException as e:
+            except BankGatewaysException as e:
                 logging.critical(e)
                 # TODO: redirect to failed result.
                 raise e
@@ -44,7 +44,7 @@ def sample_payment_view(request):
     else:
         form = PaymentSampleForm()
 
-    return render(request, 'azbankgateways/samples/gateway.html', {'form': form})
+    return render(request, 'gateways/samples/gateway.html', {'form': form})
 
 
 def sample_result_view(request):
@@ -59,4 +59,4 @@ def sample_result_view(request):
         logging.debug("این لینک معتبر نیست.")
         raise Http404
 
-    return render(request, 'azbankgateways/samples/result.html', {'bank_record': bank_record})
+    return render(request, 'gateways/samples/result.html', {'bank_record': bank_record})

@@ -1,9 +1,9 @@
 from django.urls import path
 from . import default_settings as settings
-from .apps import AZIranianBankGatewaysConfig
+from .apps import GatewaysConfig
 from .views import callback_view, go_to_bank_gateway, sample_payment_view, sample_result_view
 
-app_name = AZIranianBankGatewaysConfig.name
+app_name = GatewaysConfig.name
 
 _urlpatterns = [
     path('callback/', callback_view, name='callback'),

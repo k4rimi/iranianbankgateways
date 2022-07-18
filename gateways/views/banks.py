@@ -5,8 +5,8 @@ from django.http import Http404
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from azbankgateways.bankfactories import BankFactory
-from azbankgateways.exceptions import AZBankGatewaysException
+from gateways.bankfactories import BankFactory
+from gateways.exceptions import BankGatewaysException
 
 
 @csrf_exempt
@@ -22,7 +22,7 @@ def callback_view(request):
     bank = factory.create(bank_type, identifier=identifier)
     try:
         bank.verify_from_gateway(request)
-    except AZBankGatewaysException:
+    except BankGatewaysException:
         logging.exception("Verify from gateway failed.", stack_info=True)
     return bank.redirect_client_callback()
 
@@ -40,6 +40,6 @@ def go_to_bank_gateway(request):
 
     return render(
         request,
-        'azbankgateways/redirect_to_bank.html',
+        'gateways/redirect_to_bank.html',
         context=context
     )

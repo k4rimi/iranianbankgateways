@@ -1,2 +1,2 @@
-from .exceptions import AZBankGatewaysException, SettingDoesNotExist, CurrencyDoesNotSupport, AmountDoesNotSupport, BankGatewayConnectionError, \
+from .exceptions import BankGatewaysException, SettingDoesNotExist, CurrencyDoesNotSupport, AmountDoesNotSupport, BankGatewayConnectionError, \
     BankGatewayTokenExpired, BankGatewayUnclear, BankGatewayStateInvalid

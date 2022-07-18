@@ -5,11 +5,11 @@ import datetime
 import requests
 from Crypto.Cipher import DES3
 
-from azbankgateways.banks import BaseBank
-from azbankgateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
-from azbankgateways.exceptions.exceptions import BankGatewayRejectPayment, BankGatewayStateInvalid
-from azbankgateways.models import CurrencyEnum, BankType, PaymentStatus
-from azbankgateways.utils import get_json
+from gateways.banks import BaseBank
+from gateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
+from gateways.exceptions.exceptions import BankGatewayRejectPayment, BankGatewayStateInvalid
+from gateways.models import CurrencyEnum, BankType, PaymentStatus
+from gateways.utils import get_json
 
 
 class BMI(BaseBank):

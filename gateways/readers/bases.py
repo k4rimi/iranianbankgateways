@@ -2,8 +2,8 @@ import abc
 
 import six
 
-from azbankgateways.models import BankType
-from azbankgateways import default_settings as settings
+from gateways.models import BankType
+from gateways import default_settings as settings
 
 
 @six.add_metaclass(abc.ABCMeta)

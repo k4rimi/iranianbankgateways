@@ -3,10 +3,10 @@ from json import loads, dumps
 from time import strftime, gmtime
 from zeep import Transport, Client
 
-from azbankgateways.banks import BaseBank
-from azbankgateways.exceptions import SettingDoesNotExist
-from azbankgateways.exceptions.exceptions import BankGatewayRejectPayment
-from azbankgateways.models import CurrencyEnum, BankType, PaymentStatus
+from gateways.banks import BaseBank
+from gateways.exceptions import SettingDoesNotExist
+from gateways.exceptions.exceptions import BankGatewayRejectPayment
+from gateways.models import CurrencyEnum, BankType, PaymentStatus
 
 
 class Mellat(BaseBank):

@@ -1,29 +1,38 @@
-class AZBankGatewaysException(Exception):
-    """AZ bank gateways exception"""
+class BankGatewaysException(Exception):
+    """Bank gateways exception"""
 
-class SettingDoesNotExist(AZBankGatewaysException):
+
+class SettingDoesNotExist(BankGatewaysException):
     """The requested setting does not exist"""
 
-class CurrencyDoesNotSupport(AZBankGatewaysException):
+
+class CurrencyDoesNotSupport(BankGatewaysException):
     """The requested currency does not support"""
 
-class AmountDoesNotSupport(AZBankGatewaysException):
+
+class AmountDoesNotSupport(BankGatewaysException):
     """The requested amount does not support"""
 
-class BankGatewayConnectionError(AZBankGatewaysException):
+
+class BankGatewayConnectionError(BankGatewaysException):
     """The requested gateway connection error"""
 
-class BankGatewayRejectPayment(AZBankGatewaysException):
+
+class BankGatewayRejectPayment(BankGatewaysException):
     """The requested bank reject payment"""
 
-class BankGatewayTokenExpired(AZBankGatewaysException):
+
+class BankGatewayTokenExpired(BankGatewaysException):
     """The requested bank token expire"""
 
-class BankGatewayUnclear(AZBankGatewaysException):
+
+class BankGatewayUnclear(BankGatewaysException):
     """The requested bank unclear"""
 
-class BankGatewayStateInvalid(AZBankGatewaysException):
+
+class BankGatewayStateInvalid(BankGatewaysException):
     """The requested bank unclear"""
 
-class BankGatewayAutoConnectionFailed(AZBankGatewaysException):
+
+class BankGatewayAutoConnectionFailed(BankGatewaysException):
     """The auto connection cant find bank"""

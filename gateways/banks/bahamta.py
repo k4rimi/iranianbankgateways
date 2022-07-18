@@ -3,11 +3,11 @@ import logging
 
 import requests
 
-from azbankgateways.banks import BaseBank
-from azbankgateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
-from azbankgateways.exceptions.exceptions import BankGatewayRejectPayment
-from azbankgateways.models import CurrencyEnum, BankType, PaymentStatus
-from azbankgateways.utils import get_json, append_querystring, split_to_dict_querystring
+from gateways.banks import BaseBank
+from gateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
+from gateways.exceptions.exceptions import BankGatewayRejectPayment
+from gateways.models import CurrencyEnum, BankType, PaymentStatus
+from gateways.utils import get_json, append_querystring, split_to_dict_querystring
 
 
 class Bahamta(BaseBank):
@@ -33,6 +33,7 @@ class Bahamta(BaseBank):
     """
     Gateway
     """
+
     def _get_gateway_payment_url_parameter(self):
         return self._payment_url
 
@@ -48,6 +49,7 @@ class Bahamta(BaseBank):
     """
     pay
     """
+
     def get_pay_data(self):
         data = {
             'api_key': self._merchant_code,
@@ -77,6 +79,7 @@ class Bahamta(BaseBank):
     """
     verify gateway    
     """
+
     def prepare_verify_from_gateway(self):
         super(Bahamta, self).prepare_verify_from_gateway()
         token = self.get_request().GET.get('reference', None)
@@ -89,6 +92,7 @@ class Bahamta(BaseBank):
     """
     verify
     """
+
     def get_verify_data(self):
         super(Bahamta, self).get_verify_data()
         data = {

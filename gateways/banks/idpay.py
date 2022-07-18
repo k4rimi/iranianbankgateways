@@ -3,11 +3,11 @@ import logging
 
 import requests
 
-from azbankgateways.banks import BaseBank
-from azbankgateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
-from azbankgateways.exceptions.exceptions import BankGatewayRejectPayment
-from azbankgateways.models import CurrencyEnum, BankType, PaymentStatus
-from azbankgateways.utils import get_json, split_to_dict_querystring
+from gateways.banks import BaseBank
+from gateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
+from gateways.exceptions.exceptions import BankGatewayRejectPayment
+from gateways.models import CurrencyEnum, BankType, PaymentStatus
+from gateways.utils import get_json, split_to_dict_querystring
 
 
 class IDPay(BaseBank):

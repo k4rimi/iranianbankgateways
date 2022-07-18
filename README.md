@@ -56,7 +56,7 @@
  ``` python
 INSTALLED_APPS = [
     # ....
-    'azbankgateways',
+    'gateways',
     # ...
 ]
 AZ_IRANIAN_BANK_GATEWAYS = {
@@ -96,7 +96,7 @@ AZ_IRANIAN_BANK_GATEWAYS = {
     'CURRENCY': 'IRR', # اختیاری
     'TRACKING_CODE_QUERY_PARAM': 'tc', # اختیاری
     'TRACKING_CODE_LENGTH': 16, # اختیاری
-    'SETTING_VALUE_READER_CLASS': 'azbankgateways.readers.DefaultReader', # اختیاری
+    'SETTING_VALUE_READER_CLASS': 'gateways.readers.DefaultReader', # اختیاری
     'BANK_PRIORITIES': [
         'BMI',
         'SEP',
@@ -133,7 +133,7 @@ AZ_IRANIAN_BANK_GATEWAYS = {
 from django.contrib import admin
 from django.urls import path
 
-from azbankgateways.urls import az_bank_gateways_urls
+from gateways.urls import az_bank_gateways_urls
 
 admin.autodiscover()
 
@@ -170,8 +170,8 @@ python manage.py migrate
 ```python
 import logging
 from django.urls import reverse
-from azbankgateways import bankfactories, models as bank_models, default_settings as settings
-from azbankgateways.exceptions import AZBankGatewaysException
+from gateways import bankfactories, models as bank_models, default_settings as settings
+from gateways.exceptions import BankGatewaysException
 
 
 def go_to_gateway_view(request):
@@ -195,7 +195,7 @@ def go_to_gateway_view(request):
         
         # هدایت کاربر به درگاه بانک
         return bank.redirect_gateway()
-    except AZBankGatewaysException as e:
+    except BankGatewaysException as e:
         logging.critical(e)
         # TODO: redirect to failed page.
         raise e
@@ -236,7 +236,7 @@ import logging
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 
-from azbankgateways import bankfactories, models as bank_models, default_settings as settings
+from gateways import bankfactories, models as bank_models, default_settings as settings
 
 
 def callback_gateway_view(request):
@@ -266,7 +266,7 @@ def callback_gateway_view(request):
 
 ```python
 import logging
-from azbankgateways import bankfactories, models as bank_models, default_settings as settings
+from gateways import bankfactories, models as bank_models, default_settings as settings
 
 factory = bankfactories.BankFactory()
 
