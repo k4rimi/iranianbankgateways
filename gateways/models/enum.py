@@ -29,10 +29,10 @@ class CurrencyEnum(settings.TEXT_CHOICES):
 
 
 class PaymentStatus(settings.TEXT_CHOICES):
-    WAITING = _('در انتظار')
-    REDIRECT_TO_BANK = _('هدایت شده به بانک')
-    RETURN_FROM_BANK = _('بازگشته از بانک')
-    CANCEL_BY_USER = _('لغو توسط کاربر')
-    EXPIRE_GATEWAY_TOKEN = _('توکن منقضی شده')
-    EXPIRE_VERIFY_PAYMENT = _('تاییدیه پرداخت منقضی شده')
-    COMPLETE = _('تکمیل شده')
+    WAITING = 'Waiting', _('در انتظار')
+    REDIRECT_TO_BANK = 'Redirect to bank', _('هدایت شده به بانک')
+    RETURN_FROM_BANK = 'Return from bank', _('بازگشته از بانک')
+    CANCEL_BY_USER = 'Cancel by user', _('لغو توسط کاربر')
+    EXPIRE_GATEWAY_TOKEN = 'Expire gateway token', _('توکن منقضی شده')
+    EXPIRE_VERIFY_PAYMENT = 'Expire verify payment', _('تاییدیه پرداخت منقضی شده')
+    COMPLETE = 'Complete', _('تکمیل شده')
