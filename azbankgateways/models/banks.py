@@ -47,25 +47,25 @@ class Bank(models.Model):
         null=False,
         blank=False,
         choices=PaymentStatus.choices,
-        verbose_name=_('Status'),
+        verbose_name=_('وضعیت'),
     )
     bank_type = models.CharField(
         max_length=50,
         choices=BankType.choices,
-        verbose_name=_('Bank'),
+        verbose_name=_('بانک'),
     )
     # It's local and generate locally
     tracking_code = models.CharField(
         max_length=255,
         null=False,
         blank=False,
-        verbose_name=_('Tracking code')
+        verbose_name=_('کد پیگیری')
     )
     amount = models.CharField(
         max_length=10,
         null=False,
         blank=False,
-        verbose_name=_('Amount')
+        verbose_name=_('مبلغ')
     )
     # Reference number return from bank
     reference_number = models.CharField(
@@ -73,28 +73,28 @@ class Bank(models.Model):
         max_length=255,
         null=False,
         blank=False,
-        verbose_name=_('Reference number')
+        verbose_name=_('رفرنس')
     )
     response_result = models.TextField(
         null=True,
         blank=True,
-        verbose_name=_('Bank result')
+        verbose_name=_('نتیجه بانک')
     )
     callback_url = models.TextField(
         null=False,
         blank=False,
-        verbose_name=_('Callback url')
+        verbose_name=_('آدرس کال بک')
     )
     extra_information = models.TextField(
         null=True,
         blank=True,
-        verbose_name=_('Extra information')
+        verbose_name=_('اطلاعات تکمیلی')
     )
     bank_choose_identifier = models.CharField(
         max_length=255,
         blank=True,
         null=True,
-        verbose_name=_('Bank choose identifier')
+        verbose_name=_('شناسه بانک انتخابی')
     )
 
     created_at = models.DateTimeField(
@@ -109,8 +109,8 @@ class Bank(models.Model):
     objects = BankManager()
 
     class Meta:
-        verbose_name = _('Bank gateway')
-        verbose_name_plural = _('Bank gateways')
+        verbose_name = _('درگاه بانکی')
+        verbose_name_plural = _('درگاه های بانکی')
 
     def __str__(self):
         return '{}-{}'.format(self.pk, self.tracking_code)
