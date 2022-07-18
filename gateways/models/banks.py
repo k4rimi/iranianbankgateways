@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 # Local apps
 from .enum import BankType, PaymentStatus
+from utils.models import AbstractDateTimeModel
 
 
 class BankQuerySet(models.QuerySet):
@@ -27,14 +28,14 @@ class BankManager(models.Manager):
     def update_expire_records(self):
         count = self.active().filter(
             status=PaymentStatus.RETURN_FROM_BANK,
-            update_at__lte=datetime.datetime.now() - datetime.timedelta(minutes=15)
+            updated__lte=datetime.datetime.now() - datetime.timedelta(minutes=15)
         ).update(
             status=PaymentStatus.EXPIRE_VERIFY_PAYMENT
         )
 
         count = count + self.active().filter(
             status=PaymentStatus.REDIRECT_TO_BANK,
-            update_at__lt=datetime.datetime.now() - datetime.timedelta(minutes=15)
+            updated__lt=datetime.datetime.now() - datetime.timedelta(minutes=15)
         ).update(
             status=PaymentStatus.EXPIRE_GATEWAY_TOKEN
         )
@@ -44,7 +45,7 @@ class BankManager(models.Manager):
         return self.active().filter(status=PaymentStatus.RETURN_FROM_BANK)
 
 
-class Bank(models.Model):
+class Bank(AbstractDateTimeModel):
     status = models.CharField(
         max_length=50,
         null=False,
@@ -98,15 +99,6 @@ class Bank(models.Model):
         blank=True,
         null=True,
         verbose_name=_('شناسه بانک انتخابی')
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        editable=False,
-    )
-    update_at = models.DateTimeField(
-        auto_now=True,
-        editable=False,
     )
 
     objects = BankManager()

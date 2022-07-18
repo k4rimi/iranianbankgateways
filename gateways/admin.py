@@ -3,6 +3,7 @@ from django.contrib import admin
 
 # Local apps
 from .models import Bank
+from utils.admin import DateTimeAdminMixin
 
 
 @admin.register(Bank)
@@ -18,8 +19,7 @@ class BankAdmin(admin.ModelAdmin):
         'callback_url',
         'extra_information',
         'bank_choose_identifier',
-        'created_at',
-        'update_at',
+        *DateTimeAdminMixin.fields,
     )
     list_display = (
         'pk',
@@ -28,14 +28,12 @@ class BankAdmin(admin.ModelAdmin):
         'tracking_code',
         'amount',
         'reference_number',
-        'created_at',
-        'update_at',
+        *DateTimeAdminMixin.list_display,
     )
     list_filter = (
         'status',
         'bank_type',
-        'created_at',
-        'update_at',
+        *DateTimeAdminMixin.list_filter,
     )
     search_fields = (
         'status',
@@ -46,8 +44,6 @@ class BankAdmin(admin.ModelAdmin):
         'response_result',
         'callback_url',
         'extra_information',
-        'created_at',
-        'update_at',
     )
     readonly_fields = (
         'pk',
@@ -59,9 +55,9 @@ class BankAdmin(admin.ModelAdmin):
         'response_result',
         'callback_url',
         'extra_information',
-        'created_at',
-        'update_at',
+        *DateTimeAdminMixin.readonly_fields,
     )
+    date_hierarchy = DateTimeAdminMixin.date_hierarchy
 
     def has_add_permission(self, request):
         return False
