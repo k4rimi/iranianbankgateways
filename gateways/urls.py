@@ -20,5 +20,5 @@ if settings.IS_SAMPLE_FORM_ENABLE:
     ]
 
 
-def az_bank_gateways_urls():
+def bank_gateways_urls():
     return _urlpatterns, app_name, app_name

@@ -133,13 +133,13 @@ BANK_GATEWAYS = {
 from django.contrib import admin
 from django.urls import path
 
-from gateways.urls import az_bank_gateways_urls
+from gateways.urls import bank_gateways_urls
 
 admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bankgateways/', az_bank_gateways_urls()),
+    path('bankgateways/', bank_gateways_urls()),
 ]
 ```
 <p dir="rtl">
