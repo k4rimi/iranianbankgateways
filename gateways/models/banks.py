@@ -112,8 +112,8 @@ class Bank(models.Model):
     objects = BankManager()
 
     class Meta:
-        verbose_name = _('درگاه بانکی')
-        verbose_name_plural = _('درگاه های بانکی')
+        verbose_name = _('تراکنش')
+        verbose_name_plural = _('تراکنش ها')
 
     def __str__(self):
         return '{}-{}'.format(self.pk, self.tracking_code)
