@@ -1,9 +1,12 @@
+# Python Standard Library
 import logging
 
+# Django Built-in modules
 from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse
 
+# Local apps
 from gateways import bankfactories, models as bank_models, default_settings as settings
 from gateways.apps import GatewaysConfig
 from gateways.exceptions import BankGatewaysException

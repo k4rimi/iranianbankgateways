@@ -1,2 +1,10 @@
-from .exceptions import BankGatewaysException, SettingDoesNotExist, CurrencyDoesNotSupport, AmountDoesNotSupport, BankGatewayConnectionError, \
-    BankGatewayTokenExpired, BankGatewayUnclear, BankGatewayStateInvalid
+from .exceptions import (
+    BankGatewaysException,
+    SettingDoesNotExist,
+    CurrencyDoesNotSupport,
+    AmountDoesNotSupport,
+    BankGatewayConnectionError,
+    BankGatewayTokenExpired,
+    BankGatewayUnclear,
+    BankGatewayStateInvalid,
+)

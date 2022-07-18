@@ -1,15 +1,18 @@
+# Python Standard Library
 import logging
 import base64
 import datetime
 
-import requests
-from Crypto.Cipher import DES3
-
+# Local apps
 from gateways.banks import BaseBank
 from gateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
 from gateways.exceptions.exceptions import BankGatewayRejectPayment, BankGatewayStateInvalid
 from gateways.models import CurrencyEnum, BankType, PaymentStatus
 from gateways.utils import get_json
+
+# Third Party Packages
+from Crypto.Cipher import DES3
+import requests
 
 
 class BMI(BaseBank):

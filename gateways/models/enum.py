@@ -1,5 +1,7 @@
+# Django Built-in modules
 from django.utils.translation import gettext_lazy as _
 
+# Local apps
 import gateways.default_settings as settings
 
 

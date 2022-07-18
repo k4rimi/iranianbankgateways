@@ -1,8 +1,10 @@
 """Default settings for messaging."""
 
+# Django Built-in modules
 import django
 from django.conf import settings
 
+# Local apps
 from gateways.apps import GatewaysConfig
 
 if django.__version__ >= '3.0':

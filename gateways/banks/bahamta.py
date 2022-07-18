@@ -1,8 +1,9 @@
+# Python Standard Library
 import json
 import logging
-
 import requests
 
+# Local apps
 from gateways.banks import BaseBank
 from gateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
 from gateways.exceptions.exceptions import BankGatewayRejectPayment

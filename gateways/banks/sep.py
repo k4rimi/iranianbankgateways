@@ -1,16 +1,19 @@
+# Python Standard Library
 import logging
 import base64
 import datetime
 
-import requests
-from Crypto.Cipher import DES3
-from zeep import Transport, Client
-
+# Local apps
 from gateways.banks import BaseBank
 from gateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
 from gateways.exceptions.exceptions import BankGatewayRejectPayment
 from gateways.models import CurrencyEnum, BankType, PaymentStatus
 from gateways.utils import get_json
+
+# Third Party Packages
+import requests
+from Crypto.Cipher import DES3
+from zeep import Transport, Client
 
 
 class SEP(BaseBank):
@@ -62,6 +65,7 @@ class SEP(BaseBank):
     """
     : gateway
     """
+
     def _get_gateway_payment_url_parameter(self):
         return self._payment_url
 
@@ -78,6 +82,7 @@ class SEP(BaseBank):
     """
     verify from gateway
     """
+
     def prepare_verify_from_gateway(self):
         super(SEP, self).prepare_verify_from_gateway()
         request = self.get_request()
@@ -99,6 +104,7 @@ class SEP(BaseBank):
     """
     verify
     """
+
     def get_verify_data(self):
         super(SEP, self).get_verify_data()
         data = self.get_reference_number(), self._merchant_code

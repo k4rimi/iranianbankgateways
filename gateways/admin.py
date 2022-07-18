@@ -1,5 +1,9 @@
+# Django Built-in modules
 from django.contrib import admin
+
+# Local apps
 from .models import Bank
+
 
 class BankAdmin(admin.ModelAdmin):
     fields = [

@@ -1,10 +1,13 @@
+# Python Standard Library
 import logging
 from urllib.parse import unquote
 
+# Django Built-in modules
 from django.http import Http404
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
+# Local apps
 from gateways.bankfactories import BankFactory
 from gateways.exceptions import BankGatewaysException
 

@@ -1,8 +1,11 @@
+# Python Standard Library
 import datetime
 
+# Django Built-in modules
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+# Local apps
 from .enum import BankType, PaymentStatus
 
 

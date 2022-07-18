@@ -1,8 +1,10 @@
 from __future__ import absolute_import, unicode_literals
 import importlib
 
+# Python Standard Library
 import logging
 
+# Local apps
 from .exceptions.exceptions import BankGatewayAutoConnectionFailed
 from .models import BankType
 from .banks import BaseBank

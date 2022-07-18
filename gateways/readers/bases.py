@@ -1,9 +1,12 @@
+# Python Standard Library
 import abc
 
-import six
-
+# Local apps
 from gateways.models import BankType
 from gateways import default_settings as settings
+
+# Third Party Package
+import six
 
 
 @six.add_metaclass(abc.ABCMeta)

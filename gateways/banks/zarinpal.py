@@ -1,11 +1,14 @@
+# Python Standard Library
 import logging
 
-from zeep import Transport, Client
-
+# Local apps
 from gateways.banks import BaseBank
 from gateways.exceptions import SettingDoesNotExist
 from gateways.exceptions.exceptions import BankGatewayRejectPayment
 from gateways.models import CurrencyEnum, BankType, PaymentStatus
+
+# Third Party Packages
+from zeep import Transport, Client
 
 
 class Zarinpal(BaseBank):
@@ -30,6 +33,7 @@ class Zarinpal(BaseBank):
     """
     gateway
     """
+
     @classmethod
     def get_minimum_amount(cls):
         return 1000

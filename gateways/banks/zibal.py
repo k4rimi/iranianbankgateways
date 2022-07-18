@@ -1,13 +1,16 @@
+# Python Standard Library
 import json
 import logging
 
-import requests
-
+# Local apps
 from gateways.banks import BaseBank
 from gateways.exceptions import SettingDoesNotExist, BankGatewayConnectionError
 from gateways.exceptions.exceptions import BankGatewayRejectPayment
 from gateways.models import CurrencyEnum, BankType, PaymentStatus
 from gateways.utils import get_json
+
+# Third Party Packages
+import requests
 
 
 class Zibal(BaseBank):

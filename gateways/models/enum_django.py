@@ -1,6 +1,9 @@
+# Python Standard Library
 import enum
 
+# Django Built-in modules
 from django.utils.functional import Promise
+
 
 class ChoicesMeta(enum.EnumMeta):
     """A metaclass for creating a enum choices."""
@@ -10,9 +13,9 @@ class ChoicesMeta(enum.EnumMeta):
         for key in classdict._member_names:
             value = classdict[key]
             if (
-                isinstance(value, (list, tuple)) and
-                len(value) > 1 and
-                isinstance(value[-1], (Promise, str))
+                    isinstance(value, (list, tuple)) and
+                    len(value) > 1 and
+                    isinstance(value[-1], (Promise, str))
             ):
                 *value, label = value
                 value = tuple(value)
