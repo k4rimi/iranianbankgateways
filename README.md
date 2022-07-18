@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'gateways',
     # ...
 ]
-AZ_IRANIAN_BANK_GATEWAYS = {
+BANK_GATEWAYS = {
     'GATEWAYS': {
         'BMI': {
             'MERCHANT_CODE': '<YOUR MERCHANT CODE>',
